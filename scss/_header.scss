@@ -1,0 +1,16 @@
+.header {
+    margin-bottom: $main-spacing;
+    padding: $main-spacing 0;
+    color: #fff;
+    background-color: $color-primary;
+
+    .header--content {
+        display: flex;
+        align-items: center;
+    }
+
+    .header--logo {
+        margin-right: $main-spacing/2;
+        width: $main-spacing * 2;
+    }
+}

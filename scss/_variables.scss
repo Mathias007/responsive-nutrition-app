@@ -4,16 +4,18 @@ $base-font-size: 16px;
 $small-font-size: 14px;
 
 // rodzaj fontu
-$font-family: 'Montserrat', sans-serif;
+$font-family: "Montserrat", sans-serif;
 
 // podstawa wszelkich marginesów/paddingów
 $main-spacing: 20px;
 // maks. szerokość treści aplikacji
 $max-width: 1000px;
+// główny kolor aplikacji
+$color-primary: #f7a72e;
 
 // punkty graniczne dla potrzeb responsywności
 $breakpoints: (
     xs: 500px,
     sm: 800px,
     md: 1000px
-)
+);
