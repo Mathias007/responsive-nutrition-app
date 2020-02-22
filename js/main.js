@@ -7,7 +7,15 @@ const values = [
 
 const valuesContainer = document.querySelector(".app--values");
 
-const desktopViewport = window.matchMedia("screen nad (min-width: 500px)");
+const desktopViewport = window.matchMedia("screen and (min-width: 500px)");
+
+const drawValues = isDesktop => {
+    if (isDesktop) {
+        drawDesktopValues();
+    } else {
+        drawMobileValues();
+    }
+};
 
 const drawMobileValues = () => {
     valuesContainer.innerHTML = "";
@@ -19,15 +27,12 @@ const drawMobileValues = () => {
 
         let name = document.createElement("div");
         name.innerHTML = `<strong>Nazwa: </strong>${value.name}`;
-
         let calories = document.createElement("div");
         calories.innerHTML = `<strong>Kalorie: </strong>${value.calories}`;
-
         let fat = document.createElement("div");
-        fat.innerHTML = `<strong>Tłuszcze: </strong>${value.calories}`;
-
+        fat.innerHTML = `<strong>Tłuszcz: </strong>${value.fat}`;
         let carbs = document.createElement("div");
-        carbs.innerHTML = `<strong>Węglowodany: </strong>${value.calories}`;
+        carbs.innerHTML = `<strong>Węglowodany: </strong>${value.carbs}`;
 
         element.appendChild(name);
         element.appendChild(calories);
@@ -44,13 +49,12 @@ const drawDesktopValues = () => {
     valuesContainer.innerHTML = "";
 
     let table = document.createElement("table");
+
     let thead = document.createElement("thead");
     thead.innerHTML =
         "<tr><th>Nazwa</th><th>Kalorie</th><th>Tłuszcz</th><th>Węglowodany</th></tr>";
-    let tbody = document.createElement("tbody");
 
-    table.appendChild(thead);
-    table.appendChild(tbody);
+    let tbody = document.createElement("tbody");
 
     values.forEach(value => {
         let row = document.createElement("tr");
@@ -58,7 +62,14 @@ const drawDesktopValues = () => {
         tbody.appendChild(row);
     });
 
+    table.appendChild(thead);
+    table.appendChild(tbody);
+
     valuesContainer.appendChild(table);
 };
 
-drawMobileValues();
+drawValues(desktopViewport.matches);
+
+desktopViewport.addListener(isDesktop => {
+    drawValues(isDesktop.matches);
+});
