@@ -9,6 +9,37 @@ const valuesContainer = document.querySelector(".app--values");
 
 const desktopViewport = window.matchMedia("screen nad (min-width: 500px)");
 
+const drawMobileValues = () => {
+    valuesContainer.innerHTML = "";
+
+    let list = document.createElement("ul");
+
+    values.forEach(value => {
+        let element = document.createElement("li");
+
+        let name = document.createElement("div");
+        name.innerHTML = `<strong>Nazwa: </strong>${value.name}`;
+
+        let calories = document.createElement("div");
+        calories.innerHTML = `<strong>Kalorie: </strong>${value.calories}`;
+
+        let fat = document.createElement("div");
+        fat.innerHTML = `<strong>Tłuszcze: </strong>${value.calories}`;
+
+        let carbs = document.createElement("div");
+        carbs.innerHTML = `<strong>Węglowodany: </strong>${value.calories}`;
+
+        element.appendChild(name);
+        element.appendChild(calories);
+        element.appendChild(fat);
+        element.appendChild(carbs);
+
+        list.appendChild(element);
+    });
+
+    valuesContainer.appendChild(list);
+};
+
 const drawDesktopValues = () => {
     valuesContainer.innerHTML = "";
 
@@ -30,4 +61,4 @@ const drawDesktopValues = () => {
     valuesContainer.appendChild(table);
 };
 
-drawDesktopValues();
+drawMobileValues();
