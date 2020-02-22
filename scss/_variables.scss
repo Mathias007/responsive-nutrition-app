@@ -1,0 +1,19 @@
+// domyślny rozmiar fontu na większych ekranach
+$base-font-size: 16px;
+// domyślny font dla mniejszych ekranów
+$small-font-size: 14px;
+
+// rodzaj fontu
+$font-family: 'Montserrat', sans-serif;
+
+// podstawa wszelkich marginesów/paddingów
+$main-spacing: 20px;
+// maks. szerokość treści aplikacji
+$max-width: 1000px;
+
+// punkty graniczne dla potrzeb responsywności
+$breakpoints: (
+    xs: 500px,
+    sm: 800px,
+    md: 1000px
+)
